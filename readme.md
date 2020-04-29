@@ -16,9 +16,9 @@ Copyright (c) 2002--2020 by  Paul Hill, Rob O'Callaghan, Pui
         IEEE Transactions on Image Processing, 12(12), 1618-1633.
 
  This code is to segment a single image using Combined morphological-
- spectral unsupervised image segmentation.  Use the testSeg.m top
- level file to test out the system.
+ spectral unsupervised image segmentation.  
 
+In order to use this code see the top level example test file **testSeg.m**.
 
 
 INPUT IMAGE MUST HAVE DIMENSIONS OF A POWER OF 2 CURRENT (i.e. 128x128, 256x256)
