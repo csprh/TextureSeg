@@ -262,14 +262,25 @@ regionX = imdilate((map==xpos(k)),se1); %dilate first region
 regionY = imdilate((map==ypos(k)),se1); %dilate second region
 border = (map==0); %extract watershed lines
 %the shared border is the intersection of previous regions
-sharedBorder = regionX & regionY & border; 
+%sharedBorder = regionX & regionY & border; 
 
+sharedBorder = regionX & regionY; 
 
 %cropping the border region from the image
 [r, c] = find(sharedBorder);
 sharedBorder = sharedBorder(min(r):max(r), min(c):max(c));
 
+if ~exist('r')
+    regdiff =0;
+    return;
+end
+
+if length(r) == 0
+    regdiff =0;
+    return;
+end
 %only if the boundry is long enough calculate the fractal dimension
+try 
 if (max(r)-min(r))>5 || (max(r)-min(r))>5
     addpath('boxcount'); %include fractal library
     [n, r] = boxcount(sharedBorder);
@@ -284,6 +295,10 @@ if (max(r)-min(r))>5 || (max(r)-min(r))>5
     
 else
     regdiff = 0;
+end
+catch ME
+    
+   ME;
 end
 
 return;

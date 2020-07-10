@@ -60,7 +60,11 @@ for k=1:max(map_t(:))
     map2(imclose(map_t==k,sed)) = k;
 end
 
+[L,N] = superpixels(imOrig,500);
+map2 = uint16(L); 
 intmap = map2; %saved for display later
+
+
 
 %% MERGE %%
 if( merge )
