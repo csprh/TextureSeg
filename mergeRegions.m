@@ -122,9 +122,11 @@ for k=1:length(xpos)
         [texdiff,greydiff]=distcalcmhMAT(reg1t,reg2t,reg1g,reg2g,binsperdim);
              
         % <Essa> measure the regularity of boundary using fractal dimension
-        regdiff = calRegIndex(map, xpos, ypos, k);
+        regdiff = calRegIndex(map, xpos, ypos, k)-1 + 0.01;
         
         dists1(xpos(k),ypos(k)) = max([greydiff,texdiff,regdiff]);
+        dists1(xpos(k),ypos(k)) = regdiff;
+        %dists1(xpos(k),ypos(k)) = max([greydiff,texdiff]);
     end
 
 end
@@ -271,30 +273,32 @@ sharedBorder = regionX & regionY;
 sharedBorder = sharedBorder(min(r):max(r), min(c):max(c));
 
 if ~exist('r')
-    regdiff =0;
+    regdiff =1;
     return;
 end
 
 if length(r) == 0
-    regdiff =0;
+    regdiff =1;
     return;
 end
 %only if the boundry is long enough calculate the fractal dimension
 try 
-if (max(r)-min(r))>5 || (max(r)-min(r))>5
+if (max(r)-min(r))>5 || (max(c)-min(c))>5
     addpath('boxcount'); %include fractal library
     [n, r] = boxcount(sharedBorder);
+    %s=-gradient(log(n))./gradient(log(r));
     df = -diff(log(n))./diff(log(r));
     %disp(['Fractal dimension, Df = ' num2str(mean(df(:))) ' +/- ' num2str(std(df(:)))]);
 
-    if mean(df(:))==1
-        regdiff = 1;
-    else
-        regdiff = 0;
-    end
+    regdiff = median(df);
+    %if mean(df(:))==1
+    %    regdiff = 1;
+    %else
+    %    regdiff = 0;
+    %end
     
 else
-    regdiff = 0;
+    regdiff = 1;
 end
 catch ME
     

@@ -60,7 +60,7 @@ for k=1:max(map_t(:))
     map2(imclose(map_t==k,sed)) = k;
 end
 
-[L,N] = superpixels(imOrig,500);
+[L,N] = superpixels(imOrig,255);
 map2 = uint16(L); 
 intmap = map2; %saved for display later
 
@@ -75,15 +75,10 @@ end
 
 
 %% POST PROCESS %%
-overlay = uint8(imOrig);
-intolay = uint8(imOrig);
+overlay = uint16(imOrig);
+intolay = uint16(imOrig);
 
-overlayBand = overlay;
-overlayBand(map==0) = 255;
-overlay = overlayBand;
-intolayBand = intolay;
-intolayBand(intmap==0) = 255;
-intolay = intolayBand;
+
 
 
 %% This part is for removing region boudaries (map==0).
