@@ -5,7 +5,7 @@ Authors: Paul Hill, Rob O'Callaghan, Pui
          VILab
         The University of Bristol, UK
 
-Copyright (c) 2002--2020 by  Paul Hill, Rob O'Callaghan, Pui
+Copyright (c) 2002--2020 by  Paul Hill, Rob O'Callaghan, Pui Anantrasirichai
 
    References:
 *    [1] R. O'Callaghan,  and D.R. Bull. ["Combined morphological-spectral 
