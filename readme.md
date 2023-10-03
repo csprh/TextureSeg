@@ -11,8 +11,8 @@ Copyright (c) 2002--2020 by  Paul Hill, Rob O'Callaghan, Pui
 *    [1] R. O'Callaghan,  and D.R. Bull. ["Combined morphological-spectral 
         unsupervised image segmentation."](https://ieeexplore.ieee.org/document/1369329) IEEE transactions on image
         processing 14, no. 1 (2004): 49-62.
-*    [2] Hill, P. R., Canagarajah, C. N., & Bull, D. R. (2003). "Image 
-        segmentation using a texture gradient based watershed transform."
+*    [2] Hill, P. R., Canagarajah, C. N., & Bull, D. R. (2003). ["Image 
+        segmentation using a texture gradient based watershed transform."](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=1257398)
         IEEE Transactions on Image Processing, 12(12), 1618-1633.
 
  This code is to segment a single image using Combined morphological-
